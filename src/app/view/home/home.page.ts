@@ -9,7 +9,11 @@ export class HomePage {
   times : string[];
 
   constructor() {
-    this.times = ["West Ham", "Paysandu", "Orlando City"];
+    this.times = [
+      {nome : "West Ham", cidade : "Londres"},
+      {nome : "Paysandu", cidade : "Belém"},
+      {nome : "Orlando City", "Orlando"}
+    ];
   }
 
 }
