@@ -1,0 +1,7 @@
+{
+  "name": "FutebolStars",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
