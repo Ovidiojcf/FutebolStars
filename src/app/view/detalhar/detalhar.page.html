@@ -1,13 +1,33 @@
-<ion-header [translucent]="true">
+<ion-header >
   <ion-toolbar>
-    <ion-title>detalhar</ion-title>
+    <ion-title>Agenda de Contatos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">detalhar</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content >
+  <ion-list>
+    <ion-item>
+      <ion-toggle (ionChange)="habilitarEdicao()">Habilitar Edição</ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Nome" placeholder="Insira o nome" [(ngModel)]="nome" disabled="{{edicao}}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Telefone" placeholder="Insira o telefone" [(ngModel)]="telefone" type="number" disabled="{{edicao}}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Email" placeholder="Insira o email" [(ngModel)]="email" disabled="{{edicao}}"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select label="Gênero" placeholder="Selecione" [(ngModel)]="genero" disabled="{{edicao}}">
+        <ion-select-option value="0">Masculino</ion-select-option>
+        <ion-select-option value="1">Feminino</ion-select-option>
+        <ion-select-option value="2">Não Declarado</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button expand="block" (click)="editar()" color="secondary" disabled="{{edicao}}">Salvar</ion-button>
+    <ion-button expand="block" (click)="excluir()" color="danger" disabled="{{edicao}}">Excluir</ion-button>
+  </ion-list>
 </ion-content>

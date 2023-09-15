@@ -34,4 +34,6 @@ export class TimeService {
   public excluir(indice : number){
     this.listadeTimes.splice(indice, 1);
   }
+
+  
 }

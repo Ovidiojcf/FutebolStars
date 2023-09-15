@@ -14,17 +14,21 @@ export class HomePage {
     private firebase: FirebaseService){
       this.firebase.read()
       .subscribe(res => {
-        this.lista_contatos = res.map(contato =>{
+        this.listadeTimes = res.map(time =>{
           return {
-            id: contato.payload.doc.id,
-            ...contato.payload.doc.data() as any
+            id: time.payload.doc.id,
+            ...time.payload.doc.data() as any
           }as Contato
         })
       });
   }
 
-  cadastrar(){
-    this.listadeTimes.push({"nome" : this.nome, "cidade" :
-   this.cidade});
-    }
+  irParaCadastrar(){
+    this.router.navigate(["/cadastrar"]);
+  }
+
+  editar(time : Time){
+    this.router.navigateByUrl("/detalhar", {
+      state: {time: Time}});
+  }
 }

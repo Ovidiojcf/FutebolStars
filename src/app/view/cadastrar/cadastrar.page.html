@@ -1,13 +1,29 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>cadastrar</ion-title>
+    <ion-title>Agenda de Contatos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cadastrar</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content >
+  <ion-list>
+    <ion-item>
+      <ion-input label="nome" placeholder="Insira o nome" [(ngModel)]="nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="cidade" placeholder="Insira a cidade" [(ngModel)]="cidade"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="pais" placeholder="Insira o País" [(ngModel)]="pais"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="estadio" placeholder="Insira o Estádio" [(ngModel)]="estadio"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="estadioCapacidade" placeholder="Insira a Capacidade" [(ngModel)]="estadioCapacidade" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="dataFundacao" placeholder="Fundação do Time" [(ngModel)]="dataFundacao"></ion-input>
+    </ion-item>
+    <ion-button expand="block" (click)="cadastrar()">Enviar</ion-button>
+  </ion-list>
 </ion-content>

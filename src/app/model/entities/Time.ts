@@ -2,10 +2,10 @@ export class Time {
     private _id! : string;
     private _nome : string;
     private _cidade : string;
-    private _pais : string;
-    private _estadio : string;
-    private _estadioCapacidade : number;
-    private _dataFundacao : number;
+    private _pais! : string;
+    private _estadio! : string;
+    private _estadioCapacidade! : number;
+    private _dataFundacao! : number;
 
     //Obrigatorios Enviar
     constructor(nome : string, cidade : string){
