@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Time } from 'src/app/model/entities/Time';
 
 @Component({
   selector: 'app-home',
@@ -6,14 +8,23 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  times : string[];
+  listadeTimes : Time[] = [];
 
-  constructor() {
-    this.times = [
-      {nome : "West Ham", cidade : "Londres"},
-      {nome : "Paysandu", cidade : "Belém"},
-      {nome : "Orlando City", "Orlando"}
-    ];
+  constructor(private router: Router,
+    private firebase: FirebaseService){
+      this.firebase.read()
+      .subscribe(res => {
+        this.lista_contatos = res.map(contato =>{
+          return {
+            id: contato.payload.doc.id,
+            ...contato.payload.doc.data() as any
+          }as Contato
+        })
+      });
   }
 
+  cadastrar(){
+    this.listadeTimes.push({"nome" : this.nome, "cidade" :
+   this.cidade});
+    }
 }
